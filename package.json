@@ -1,0 +1,16 @@
+{
+  "name": "restful-ocr",
+  "version": "1.0.0",
+  "description": "Resful Webservice providing OCR services utilizing NodeJS and TesseractJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Seamus Minogue",
+  "license": "ISC",
+  "dependencies": {
+    "formidable": "",
+    "tesseract.js": ""
+  }
+}
