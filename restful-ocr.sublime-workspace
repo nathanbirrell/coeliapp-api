@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"err",
+				"err"
+			],
+			[
 				"tex",
 				"texture"
 			],
@@ -233,10 +237,6 @@
 			],
 			[
 				"erro",
-				"error_log"
-			],
-			[
-				"err",
 				"error_log"
 			],
 			[
@@ -503,14 +503,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "index.js",
-			"settings":
-			{
-				"buffer_size": 51,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -604,6 +596,21 @@
 	},
 	"file_history":
 	[
+		"/Users/sminogue/Documents/gitlab/lottery-ios/www/js/my-app.js",
+		"/Users/sminogue/Documents/gitlab/lottery-ios/www/index.html",
+		"/Users/sminogue/Documents/gitlab/lottery-ios/www/view-ticket.html",
+		"/Users/sminogue/Documents/gitlab/lottery-ios/www/css/styles.css",
+		"/Users/sminogue/Documents/gitlab/lottery-ios/config.xml",
+		"/Users/sminogue/Documents/gitlab/lottery-ios/www/about.html",
+		"/Users/sminogue/Documents/gitlab/camera-tester/config.xml",
+		"/Users/sminogue/Documents/gitlab/camera-tester/www/js/index.js",
+		"/Users/sminogue/Documents/gitlab/camera-tester/www/index.html",
+		"/Users/sminogue/git/restful-ocr/index.js",
+		"/Users/sminogue/git/restful-ocr/server.js",
+		"/Users/sminogue/git/restful-ocr/router.js",
+		"/Users/sminogue/git/restful-ocr/requestHandlers.js",
+		"/Users/sminogue/git/restful-ocr/ocr.js",
+		"/Users/sminogue/git/restful-ocr/package.json",
 		"/Users/sminogue/git/ige_prototype/darkness/index.html",
 		"/Users/sminogue/git/ige_prototype/examples/14.2-isoobjects-physics/gameClasses/PlayerComponent.js",
 		"/Users/sminogue/Documents/Workspaces/Kepler/game-js/WebContent/lib/modules/dao.js",
@@ -716,22 +723,7 @@
 		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/js/dialogs/addbook_simple_dialog.js",
 		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/js/pages/home.js",
 		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/js/lib/mylibrary.js",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/template/banner.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/js/pages/advancedadd.js",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/template/prod_head.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/js/lib/validation.js",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/js/pages/bookdetails.js",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/dialogs/addbook-simple-dialog.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/mailbox.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/preferences.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/editprofile.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/template/navigation.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/usercontrolpanel.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/browse.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/js/pages/frienddetails.js",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/reviewed.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/dialogs/findbook-simple-dialog.shtml",
-		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/dialogs/findbook-advanced-dialog.shtml"
+		"/Users/sminogue/Documents/juno/mylibrary-prototype/WebContent/template/banner.shtml"
 	],
 	"find":
 	{
@@ -739,7 +731,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			""
@@ -942,35 +934,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "index.js",
-					"settings":
-					{
-						"buffer_size": 51,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
