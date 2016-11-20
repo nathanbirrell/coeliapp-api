@@ -17,7 +17,8 @@ Tesseract.recognize(filename)
   })
   .then(function (result) {
     response.writeHead(200, {"Content-Type": "text/html"});
-    response.write(result.text);
+    var str = result.text.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    response.write(str);
     response.end();
   })
   .finally(function (r){
