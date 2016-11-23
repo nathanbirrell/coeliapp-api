@@ -1,44 +1,70 @@
 var querystring = require("querystring"),
     fs = require("fs"),
+    path = require('path'),
     formidable = require("formidable"),
-    ocr = require("./ocr");
+    ocr = require("./ocr"),
+    logger = require("./logger");
 
-function start(response) {
-  console.log("Request handler 'start' was called.");
+/*
+* Function to provide general webserver functionality.
+* Source: http://ericsowell.com/blog/2011/5/6/serving-static-files-from-node-js
+*/
+function serveHtml(request, response){
+  var filePath = '.' + request.url;
+  if (filePath == './')
+    filePath = './index.html';
+    
+  var extname = path.extname(filePath);
+  var contentType = 'text/html';
+  switch (extname) {
+    case '.js':
+      contentType = 'text/javascript';
+      break;
+    case '.css':
+      contentType = 'text/css';
+      break;
+  }
 
-  var body = '<html>'+
-    '<head>'+
-    '<meta http-equiv="Content-Type" '+
-    'content="text/html; charset=UTF-8" />'+
-    '</head>'+
-    '<body>'+
-    '<form action="/upload" enctype="multipart/form-data" '+
-    'method="post">'+
-    '<input type="file" name="upload" multiple="multiple">'+
-    '<input type="submit" value="Upload file" />'+
-    '</form>'+
-    '</body>'+
-    '</html>';
-
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.write(body);
-    response.end();
+  fs.exists(filePath, function(exists) {
+  
+    if (exists) {
+      fs.readFile(filePath, function(error, content) {
+        if (error) {
+          logger.logAccess(request,500);
+          response.writeHead(500);
+          response.end();
+        }
+        else {
+          logger.logAccess(request,200);
+          response.writeHead(200, { 'Content-Type': contentType });
+          response.end(content, 'utf-8');
+        }
+      });
+    }
+    else {
+      logger.logAccess(request,404);
+      response.writeHead(404);
+      response.end();
+    }
+  });
 }
 
-function upload(response, request) {
-  console.log("Request handler 'upload' was called.");
+function performOcr(response, request) {
   var form = new formidable.IncomingForm();
-  console.log("about to parse");
   form.parse(request, function(error, fields, files) {
-    console.log("parsing done");
-
 
     var type = files.type;
     var tmpFile = "/tmp/test";
     if(type === "image/png"){
       tmpFile += ".png";
-    }else{
+    }else if(type === "image/jpeg"){
       tmpFile += ".jpg";
+    }else{
+      logger.log("Error when Attempting OCR (Unsupported Image Type)");
+      response.writeHead(500, {"Content-Type": "text/html"});
+      response.write("Server Error: Unsupported Image Type");
+      response.end();
+      return;
     }
 
 
@@ -64,22 +90,8 @@ function upload(response, request) {
         ocr.ocr(tmpFile,response);
       }
     });
-    
-    //ocr.ocr(tmpFile,response);
-    //response.writeHead(200, {"Content-Type": "text/html"});
-    //response.write("done");
-    //response.end();
-
   });
 }
 
-
-function show(response) {
-  console.log("Request handler 'show' was called.");
-  response.writeHead(200, {"Content-Type": "image/png"});
-  fs.createReadStream("/tmp/test.png").pipe(response);
-}
-
-exports.start = start;
-exports.upload = upload;
-exports.show = show;
+exports.performOcr = performOcr;
+exports.serveHtml = serveHtml;
