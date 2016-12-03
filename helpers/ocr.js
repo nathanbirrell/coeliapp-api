@@ -1,7 +1,35 @@
 var Tesseract = require('tesseract.js'),
-  fs = require('fs');
+  fs = require('fs'),
+  config = require('config'),
+  tessocr = require('ntesseract');
+
 
 function ocr(filename, response) {
+  var useTesseract = config.get('ocr.tesseract');
+
+  if (useTesseract) {
+    tesseractC(filename,response);
+  } else {
+    tesseractjs(filename, response);
+  }
+
+}
+
+function tesseractC(filename, response) {
+  tessocr.process(filename, function (err, text) {
+    if (err) {
+      response.writeHead(500, { "Content-Type": "text/html" });
+      response.write("Server Error: " + err);
+      response.end();
+    } else {
+      response.writeHead(200, { "Content-Type": "text/html" });
+      response.write(text);
+      response.end();
+    }
+  });
+}
+
+function tesseractjs(filename, response) {
   Tesseract.recognize(filename)
     .progress(function (p) {
       //Status messages

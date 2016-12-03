@@ -1,0 +1,5 @@
+{
+    "ocr" : {
+        "tesseract" : true
+    }
+}
