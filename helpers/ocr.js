@@ -8,7 +8,7 @@ function ocr(filename, response) {
   var useTesseract = config.get('ocr.tesseract');
 
   if (useTesseract) {
-    tesseractC(filename,response);
+    tesseractC(filename, response);
   } else {
     tesseractjs(filename, response);
   }
@@ -17,6 +17,13 @@ function ocr(filename, response) {
 
 function tesseractC(filename, response) {
   tessocr.process(filename, function (err, text) {
+
+    fs.unlink(filename, function (err) {
+      if (err) {
+        console.error('Error when attempting file cleanup: ' + err);
+      }
+    });
+
     if (err) {
       response.writeHead(500, { "Content-Type": "text/html" });
       response.write("Server Error: " + err);
