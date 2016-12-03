@@ -1,5 +1,12 @@
 {
-    "ocr" : {
-        "tesseract" : true
+    "app" : {
+        "version": "0.0.1",
+        "port" : 3000
+    },
+    "tesseract-ocr" : {
+        "enabled" : true
+    },
+    "transform" : {
+        "enabled" : true
     }
 }

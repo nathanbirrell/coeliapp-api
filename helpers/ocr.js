@@ -5,7 +5,7 @@ var Tesseract = require('tesseract.js'),
 
 
 function ocr(filename, response) {
-  var useTesseract = config.get('ocr.tesseract');
+  var useTesseract = config.get('tesseract-ocr.enabled');
 
   if (useTesseract) {
     tesseractC(filename, response);

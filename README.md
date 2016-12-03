@@ -21,10 +21,11 @@ restful-ocr currently supports two modes of recognizing text in images. It makes
 3. % brew install tesseract --with-all-languages
 
 ## Configuration
-Open the config/default.json file. Changing ocr.tesseract true|false enables or disables the tesseract-ocr application. When false restful-ocr will make use of the tesseractjs library. When true it will attempt to make use of the installed tesseract application.
+Open the config/default.json file. Changing tesseract-ocr.enabled true|false enables or disables the tesseract-ocr application. When false restful-ocr will make use of the tesseractjs library. When true it will attempt to make use of the installed tesseract application.
 
 ## Operation
 Start the application like you would any other node application by using the command _npm start_ from the application home directory. Alternatively you may use any [process manager](http://expressjs.com/en/advanced/pm.html)
+__Note: I have been unable to get this working with PM2, there is a conflict with node-config__
 
 ## Testing
 Testing the webservice... 
