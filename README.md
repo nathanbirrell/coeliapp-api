@@ -13,7 +13,9 @@ restful-ocr currently supports two modes of recognizing text in images. It makes
 1. Download and unzip Source from github
 2. CD into download directory
 3. % npm install
-4. mkdir ./images
+4. mkdir ./images (or some other location)
+5. Edit config/default.json (set images path to step 4, enable or disable tesseract-ocr... this is the C installed tesseract rather than the native JS)
+
 
 ### tesseract-ocr (_optional_)
 1. % brew install leptonica --with-libtiff

@@ -1,21 +1,24 @@
 'use strict';
 
-var fs = require('fs');
-var uid = require('uid');
-var ocr = require('../helpers/ocr');
+var fs = require('fs'),
+    uid = require('uid'),
+    config = require('config'),
+    ocr = require('../helpers/ocr');
 
-exports.file = function(req, res) {
+exports.file = function (req, res) {
     req.pipe(req.busboy);
-    req.busboy.on('file', function(fieldname, file, filename) {
+    req.busboy.on('file', function (fieldname, file, filename) {
 
         var prefix = uid(6);
 
-        var fstream = fs.createWriteStream('./images/' + prefix + '_' + filename); 
+        var imagesDir = config.get("app.images");
+
+        var fstream = fs.createWriteStream(imagesDir + prefix + '_' + filename);
         file.pipe(fstream);
         fstream.on('close', function () {
             //TODO perform post upload actions.
-            
-            ocr.ocr('./images/' + prefix + '_' + filename,res);
+
+            ocr.ocr(imagesDir + prefix + '_' + filename, res);
 
         });
     });
