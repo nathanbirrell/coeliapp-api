@@ -5,6 +5,6 @@
         "images" : "/tmp/"
     },
     "tesseract-ocr" : {
-        "enabled" : true
+        "enabled" : false
     }
 }
