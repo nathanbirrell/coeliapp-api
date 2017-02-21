@@ -10,11 +10,7 @@ function run(filename) {
   var useTesseract = config.get('tesseract-ocr.enabled');
 
   if (useTesseract) {
-
-    return new Q.Promise(function (resolve) {
-      resolve(tesseractCA(filename));
-    });
-
+    return tesseractCA(filename);
   } else {
     return tesseractjs(filename);
   }
@@ -40,24 +36,16 @@ function tesseractjs(filename) {
 
 function tesseractCA(filename) {
 
-  var deferred = Q.defer();
-
-  tessocr.process(filename, function (err, text) {
-    if (err) {
-      throw err;
-    } else {
-      return text;
-    }
+  return new Q.Promise(function (resolve, reject) {
+    tessocr.process(filename, function (err, text) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(text);
+      }
+    });
   });
+
 }
-
-
-
-
-
-
-
-
-
 
 exports.run = run;
