@@ -1,3 +1,4 @@
 node_modules/**
 eng.traineddata
 npm-debug.log
+dist/**
