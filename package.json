@@ -16,8 +16,13 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "ntesseract": "^0.2.8",
+    "q": "^1.4.1",
     "serve-favicon": "~2.3.0",
     "tesseract.js": "^1.0.10",
     "uid": "0.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-zip": "^4.0.0"
   }
 }
