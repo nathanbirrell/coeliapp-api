@@ -43,6 +43,7 @@ When choosing between tesseract-ocr and tesseractjs performance is really where 
 
 ## Packaging and Deployment
 If you wish to package the application for easy deployment to a server, this can be done easily using gulp.
+
 1. % npm install (This should already be done, but saying it again to be sure)
 2. % gulp dist
 
