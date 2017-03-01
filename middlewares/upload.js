@@ -3,7 +3,6 @@
 var fs = require('fs'),
     uid = require('uid'),
     config = require('config'),
-    ocr = require('../helpers/ocr'),
     ocrp = require('../helpers/ocr-p');
 
 exports.file = function (req, res) {
