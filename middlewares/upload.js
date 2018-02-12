@@ -23,9 +23,7 @@ exports.file = function (req, res) {
     function handleFileUploaded() {
         var ocrpromise = ocrp.run(filePath).then(
             function (rawText) {
-                console.log('success');
                 var result = JSON.stringify(new Scan(rawText));
-                console.log(result);
                 res.writeHead(200, { "Content-Type": "text/json" });
                 res.write(result);
                 res.end();
