@@ -1,5 +1,4 @@
 var fs = require('fs');
-var config = require('config');
 var tesseract = require('ntesseract');
 var Q = require("q");
 
