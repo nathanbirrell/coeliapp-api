@@ -30,10 +30,14 @@ function parseIngredients(rawText, ingredientsIndex) {
   // Trim whitespace at start/end
   cleanText = cleanText.trim();
 
+  // Trim from first full stop onwards
+  firstFullStopIndex = cleanText.indexOf(".");
+  if (firstFullStopIndex > -1) {
+    cleanText = cleanText.slice(0, firstFullStopIndex);
+  }
+
   // Split into comma-delimited array
   const ingredientsArray = cleanText.split(', ');
-
-  // TODO: trim final array item from full-stop to string.length
 
   // TODO: trim each item in array?
   // TODO: Trim full-stops `cleanText.replace(/\./, '');`
