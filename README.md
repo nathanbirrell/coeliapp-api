@@ -1,9 +1,9 @@
 # restful-ocr
-A NodeJS project which will allow a client to post an image to the api and return the text from the image. 
+A NodeJS project which will allow a client to post an image to the api and return the text from the image.
 
 restful-ocr currently supports two modes of recognizing text in images. It makes use of tesseractjs or and installed copy of the tesseract program. The reason for supporting two forms of tesseract is if performance isnt a concern and you do not have the desire or ability to install the tesseract-ocr application tesseractjs is a usable alternative.
 
-## Installation 
+## Installation
 ### Prerequisites
 * nodejs (>= 6.9.0) installed on your server
 * npm installed on your server
@@ -17,9 +17,7 @@ restful-ocr currently supports two modes of recognizing text in images. It makes
 
 
 ### tesseract-ocr (_optional_)
-1. % brew install leptonica --with-libtiff
-2. % brew install imagemagick
-3. % brew install tesseract --with-all-languages
+1. `brew install leptonica --with-libtiff; brew install imagemagick; brew install tesseract`
 
 ## Configuration
 Open the config/default.json file. Changing tesseract-ocr.enabled true|false enables or disables the tesseract-ocr application. When false restful-ocr will make use of the tesseractjs library. When true it will attempt to make use of the installed tesseract application.
@@ -30,7 +28,7 @@ __Note: I have been unable to get this working with PM2, there is a conflict wit
 I recommend using strongloop as I had no problems running the application under it, but thats just personal pref.
 
 ## Testing
-Testing the webservice... 
+Testing the webservice...
 1. Use a simple image containing text you want to ocr (eng_bw.jpg from tesseractjs website is my goto)
 2. Start the restful-ocr server
 3. Using curl post the image: `curl -F filedata=@/path/to/image/eng_bw.png "http://localhost:3000/api/upload"`
@@ -39,7 +37,7 @@ If everything is working properly you should see your text returned. Note that e
 
 
 ## Performance
-When choosing between tesseract-ocr and tesseractjs performance is really where its at. On my laptop using the same eng_bw.jpg image it takes between 31 and 47 seconds when using tesseractjs. When using tesseract-ocr it takes between 1.2 and 1.7 seconds. 
+When choosing between tesseract-ocr and tesseractjs performance is really where its at. On my laptop using the same eng_bw.jpg image it takes between 31 and 47 seconds when using tesseractjs. When using tesseract-ocr it takes between 1.2 and 1.7 seconds.
 
 ## Packaging and Deployment
 If you wish to package the application for easy deployment to a server, this can be done easily using gulp.
